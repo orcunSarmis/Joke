@@ -20,6 +20,21 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 
 // test();
 
+// passing joke to voicesapi
+function tellMe(joke) {
+console.log('tel me:', joke);
+	VoiceRSS.speech({
+		key: 'b2fed8d203c84c769febc6d0a44d597b',
+		src: joke,
+		hl: 'en-us',
+		v: 'Linda',
+		r: 0,
+		c: 'mp3',
+		f: '44khz_16bit_stereo',
+		ssml: false
+	});
+}
+
 // get jokes from API
 async function getJokes() {
 	let joke = '';
@@ -32,7 +47,8 @@ async function getJokes() {
 		} else {
 			joke = data.joke;
 		}
-		console.log(joke);
+		tellMe(joke);
+		// console.log(joke);
 	} catch (error) {
 		console.log('hoppaa', error);
 	}
