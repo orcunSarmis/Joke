@@ -1,5 +1,6 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
+const writer = document.getElementById('writer');
 
 
 // VoiceRSS Javascript SDK
@@ -49,6 +50,7 @@ async function getJokes() {
 		const data = await response.json();
 		if (data.setup) {
 			joke = `${data.setup} ... ${data.delivery}`;
+			document.querySelector('h1').insertAdjacentHTML('beforeend', joke);
 		} else {
 			joke = data.joke;
 		}
